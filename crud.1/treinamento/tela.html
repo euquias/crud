@@ -20,20 +20,21 @@ body{
     display: flex;
     flex-direction: column;
      padding: 30px; /*zero de barra de rolagen na paginainteira*/
-     margin: 50px; 
-
-     box-sizing: border-box;
+     margin: 10px; 
+      
+     width: 200px; /*largura*/
+     height:300px ; /*altura*/  
      background-color: tomato;
 }   
 .tabela{
     display: flex;
-    font-size: 30px;
+    font-size: 15px;
     align-items: baseline; /*centralizar ao meio*/
     border:solid blue 5px;
     align-self:center ;
     height: 300px; /*altura */
      margin-left: 30px;
-    flex-basis: 500px; /*altura e largura */
+    flex-basis: 700px; /*altura e largura */
     margin-right: 10px;
     overflow-x: auto;
 
@@ -56,25 +57,25 @@ th, td{
  
 }
 
-    </style>
-
-    </head>
+</style>
+</head>
 <body>
     
 
 <div class="cadastro">
+<form accept="tela.php" method="post">  
     <label class="label">Nome:</label>    
-        <input type="texto" name="nome" placeholder="nome">
+        <input type="texto" name="usuario" placeholder="nome">
             
-                <label class="label">Email:</label>                             
+                <label class="label">email</label>                             
                     <input type="email" name="email" placeholder="email">
 
-                         <label class="label">Telefone:</label>
+                         <label class="label">telefone</label>
                              <input type="tel" name="telefone" placeholder="telefone">
-
-
+            
+                              
                             <div class="button">
-                            <input type="button" value="enviar">
+                            <input type="submit" value="enviar">
                             </div>
                         </div>
                         <div class="tabela">
@@ -84,23 +85,65 @@ th, td{
                                     <th>email</th>
                                     <th>Telefone</th>
                                     <th>ação</th>
-
                                 </tr>
-                                <tr>
-                                    <td>euquias</td>
-                                    <td>euquias@2020</td>
-                                    <td>(61)9.9163-1462</td>
-                                    <td><a href="editar" href="deletar">
+                                <?php
+                                $conn = new mysqli("localhost", "root", "", "db_formulario");
 
-                                    </a></td>  
+                                $resulte = $conn->query("SELECT * FROM db_lista" );
+
+                                while ($dado = $resulte->fetch_array()){ 
+                                    
+                                    ?>
+                                <tr>
+                                    <td><?php echo $dado["usuario"]; ?></td>
+                                    <td><?php echo $dado["email"]; ?></td>
+                                    <td><?php echo $dado["telefone"]; ?></td>
+                                    <td></td>  
+                                <?php  } ?> 
                                 </tr> 
                             </table>
                         </div>
                         
-       
-   
-
-
     
 </body>
 </html>
+
+<?php
+
+$conn = new mysqli("localhost", "root", "", "db_formulario");
+
+
+   if (isset($_POST['submit']));
+
+   $usuario= $_POST['usuario'];
+   $email= $_POST['email'];
+   $telefone= $_POST['telefone'];
+
+
+$stmt = mysqli_query($conn, "INSERT INTO db_lista( usuario, telefone, email) 
+  values('$usuario', '$telefone', '$email')");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ?>  
+
+
+
+
+
