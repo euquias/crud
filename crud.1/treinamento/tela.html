@@ -34,7 +34,7 @@ body{
     align-self:center ;
     height: 300px; /*altura */
      margin-left: 30px;
-    flex-basis: 700px; /*altura e largura */
+    flex-basis: 800px; /*altura e largura */
     margin-right: 10px;
     overflow-x: auto;
 
@@ -81,6 +81,7 @@ th, td{
                         <div class="tabela">
                             <table border="1">
                                 <tr>
+                                    <th>ID</th>
                                     <th>nome</th>
                                     <th>email</th>
                                     <th>Telefone</th>
@@ -95,10 +96,12 @@ th, td{
                                     
                                     ?>
                                 <tr>
+                                    <td><?php echo $dado["idusuario"]; ?></td>
                                     <td><?php echo $dado["usuario"]; ?></td>
                                     <td><?php echo $dado["email"]; ?></td>
                                     <td><?php echo $dado["telefone"]; ?></td>
-                                    <td></td>  
+                                    <td><input type="submit" value="exluir">
+                                        <input type="submit" value="editar"></td>  
                                 <?php  } ?> 
                                 </tr> 
                             </table>
@@ -122,24 +125,6 @@ $conn = new mysqli("localhost", "root", "", "db_formulario");
 
 $stmt = mysqli_query($conn, "INSERT INTO db_lista( usuario, telefone, email) 
   values('$usuario', '$telefone', '$email')");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
  ?>  
 
