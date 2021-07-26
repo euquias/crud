@@ -1,0 +1,1 @@
+SELECT * FROM db_formulario.db_lista;
