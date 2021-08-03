@@ -65,7 +65,7 @@ th, td{
 <div class="cadastro">
 <form accept="tela.php" method="post">  
     <label class="label">Nome:</label>    
-        <input type="texto" name="usuario" placeholder="nome">
+        <input type="text" name="usuario" placeholder="nome">
             
                 <label class="label">email</label>                             
                     <input type="email" name="email" placeholder="email">
