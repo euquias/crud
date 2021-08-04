@@ -1,6 +1,4 @@
-<?php
-require_once "tabela.php";
-?>
+
      <!DOCTYPE html>
      <html lang="en">
      <head>
